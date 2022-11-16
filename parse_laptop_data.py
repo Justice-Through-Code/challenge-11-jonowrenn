@@ -87,16 +87,16 @@ print(laptops[0]["url"])
 #   So, for instance:
 #   Dell XPS ram: ["8GB", "16GB", "32GB", "64GB"]
 def print_laptop_data(laptop, topic):
+    computer = None
     if laptop == "Apple Macbook Pro":
         computer = laptops[0]
-        for i in laptops[0]["types"][0]:
-            if i == topic:
-                print(computer, i)
-            else: 
-                computer == laptops[1]
-                for in laptops[1]["types"][0]:
-                    if i == topic: 
-                        print(computer, i)
+    elif laptop == 'Dell XPS':
+        computer = laptops[1]
+    else: 
+        print('Thats not available') 
+        return 
+    print(f'{laptop} {topic}: {computer["types"][0][topic]}')
+
 
 # 1.3 TODO: Call your function 3 times to print out:
 #   1.3.1: All possible prices of the Apple Macbook Pro.
@@ -112,8 +112,8 @@ print_laptop_data("Dell XPS", "screen_size")
 #   No need to specify which computer each price belongs to.
 def list_prices(laptops):
     for i in laptops:
-        for types in i ["types"]:
-            for comp_prices in types["prices"]:
+        for types in i['types']:
+            for comp_prices in types['price']:
                 print(comp_prices)
 
 # 2.2 TODO: Call your function to see that it works.
@@ -126,10 +126,10 @@ laptops[0]["types"][1]["colors"].remove("space gray")
 laptops[0]["types"][1]["storage"].remove("1 TB SSD")
 
 # 3.1 TODO: Update the `laptops` dictionary to reflect these changes.
-print(laptops)
+
 
 # 3.2 TODO: Print out the Macbook Pro dictionary to see the changes.
-
+print(laptops[0])
 
 # BONUS TODO: Write a function called `get_price_range` that returns the minimum and maximum prices out of all the options.
 
